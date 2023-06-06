@@ -1,19 +1,21 @@
-#include <iostream>
- 
-int fibonacci(int number)
-{
-    if (number == 0)
-        return 0; 
-    if (number == 1)
-        return 1; 
-    return fibonacci(number-1) + fibonacci(number-2);
-}
- 
-
+#include 
 int main()
 {
-    for (int count=0; count < 13; ++count)
-        std:: cout << fibonacci(count) << " ";
- 
-    return 0;
+  int N;
+  printf("N=");
+  scanf("%d", &N);
+  int a = 1, b = 1, c;
+  if (N <= 2)
+    printf("1 ");
+  else 
+  {
+    for (int i = 3; i <= N; i++) 
+    {
+      c = a + b;
+      a = b; b = c;
+    }
+    printf("%d ", b);
+  }
+  getchar(); getchar();
+  return 0;
 }
