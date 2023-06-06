@@ -1,21 +1,28 @@
-#include 
+#include <iostream>
+#include <vector>
+using namespace std;
 int main()
 {
-  int N;
-  printf("N=");
-  scanf("%d", &N);
-  int a = 1, b = 1, c;
-  if (N <= 2)
-    printf("1 ");
-  else 
-  {
-    for (int i = 3; i <= N; i++) 
-    {
-      c = a + b;
-      a = b; b = c;
-    }
-    printf("%d ", b);
-  }
-  getchar(); getchar();
-  return 0;
+	int n;
+	cin >> n;
+	if (n==1)
+	{
+		cout << 0;
+	}else if (n == 2)
+	{
+		cout << 1;
+	}
+	else if (n>2)
+	{
+		int a;
+		vector<int> g{0,1};
+		for (size_t i = 2; i < n; i++)
+		{
+			a = g[i - 1] + g[i - 2];
+			g.push_back(a);
+			a = 0;
+		}
+		cout << g[n-1];
+	}
+	
 }
